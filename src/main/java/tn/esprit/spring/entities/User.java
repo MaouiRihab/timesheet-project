@@ -3,9 +3,10 @@ package tn.esprit.spring.entities;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "users")
+@Table(name = "t_user")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,7 +51,9 @@ public class User implements Serializable {
     public Long getId() { return id; }
     public String getFirstName() { return firstName; }
     public String getLastName() { return lastName + "-v1"; }
+    @JsonIgnore
     public String getUsername() { return username; }   // <-- ajouté
+    @JsonIgnore
     public String getPassword() { return password; }   // <-- ajouté
     public Date getDateNaissance() { return dateNaissance; }
     public Role getRole() { return role; }
